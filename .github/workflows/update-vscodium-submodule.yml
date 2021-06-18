@@ -1,0 +1,34 @@
+---
+name: Update vscodium submodule
+
+"on":
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/update-vscodium-submodule.yml
+  schedule:
+    - cron: "0 * * * *"
+  repository_dispatch:
+    types:
+      - update-vscodium-submodule
+
+jobs:
+  update-vscodium-submodule:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - uses: technote-space/create-pr-action@v2
+        with:
+          EXECUTE_COMMANDS: |
+            git submodule update --remote
+          COMMIT_EMAIL: 'tibeer@outlook.de'
+          COMMIT_MESSAGE: |
+            chore: update vscodium submodule
+            Signed-off-by: OSISM Bot <tibeer@outlook.de>
+          COMMIT_NAME: 'tibeer bot'
+          ONLY_DEFAULT_BRANCH: true
+          PR_BRANCH_NAME: 'update-vscodium-submodule'
+          PR_BRANCH_PREFIX: 'chore/'
+          PR_TITLE: 'chore: update vscodium submodule'
