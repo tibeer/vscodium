@@ -11,17 +11,22 @@ if [[ "$(git tag -l | tail -n 1)" =~ "darwin_arm64" ]]; then
 else
   tag="$(git tag -l | tail -n 1).darwin_arm64"
 fi
+
+
+echo "### COMPILING ###"
+rm -rf VSCode*
+rm -rf vscode
+. get_repo.sh
+SHOULD_BUILD=yes CI_BUILD=no OS_NAME=osx VSCODE_ARCH=arm64 . build.sh
+
+
+echo "### RELEASE ###"
 gh release create "${tag}" --notes "Added Darwin ARM64 binary for M1 Macs.
 Compiled on my M1 Macbook Air in just about 5 minutes 🥳"
 zip -r VSCode-darwin-arm64/VSCodium.zip VSCode-darwin-arm64/VSCodium.app -x "*.DS_Store"
 gh release upload "${tag}" VSCode-darwin-arm64/VSCodium.zip
 
-#echo "### COMPILING ###"
-#rm -rf VSCode*
-#rm -rf vscode
-#. get_repo.sh
-#SHOULD_BUILD=yes CI_BUILD=no OS_NAME=osx VSCODE_ARCH=arm64 . build.sh
-#
-#echo "### INSTALLING ###"
-#cp -r VSCode-darwin-arm64/VSCodium.app /Applications/VSCodium.app
+
+echo "### INSTALLING ###"
+sudo cp -r VSCode-darwin-arm64/VSCodium.app /Applications/VSCodium.app
 
