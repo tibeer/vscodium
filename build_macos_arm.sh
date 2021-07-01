@@ -23,7 +23,7 @@ if [[ "${tag_upstream}.darwin_arm64" != "${tag_fork}" ]]; then
   gh release upload "${tag}" vscodium/VSCode-darwin-arm64/VSCodium.zip
 
   echo "### INSTALLING ###"
-  sudo cp -r VSCode-darwin-arm64/VSCodium.app /Applications/VSCodium.app
+  sudo cp -r vscodium/VSCode-darwin-arm64/VSCodium.app /Applications/VSCodium.app
   sudo xattr -r -d com.apple.quarantine /Applications/VSCodium.app
 else
   echo "### ALREADY ON LATEST VERSION ###"
