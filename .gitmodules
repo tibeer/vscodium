@@ -1,3 +1,3 @@
 [submodule "vscodium"]
 	path = vscodium
-	url = git@github.com:VSCodium/vscodium.git
+	url = https://github.com/VSCodium/vscodium
