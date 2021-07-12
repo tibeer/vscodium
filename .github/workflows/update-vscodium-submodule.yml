@@ -26,7 +26,7 @@ jobs:
           COMMIT_EMAIL: 'tibeer@outlook.de'
           COMMIT_MESSAGE: |
             chore: update vscodium submodule
-            Signed-off-by: OSISM Bot <tibeer@outlook.de>
+            Signed-off-by: tibeer Bot <tibeer@outlook.de>
           COMMIT_NAME: 'tibeer bot'
           ONLY_DEFAULT_BRANCH: true
           PR_BRANCH_NAME: 'update-vscodium-submodule'
