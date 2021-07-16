@@ -22,9 +22,10 @@ if [[ "${tag_upstream}.darwin_arm64" != "${tag_fork}" ]]; then
   zip -r -X -y vscodium/VSCode-darwin-arm64/VSCodium.zip vscodium/VSCode-darwin-arm64/VSCodium.app -x "*.DS_Store"
   gh release upload "${tag}" vscodium/VSCode-darwin-arm64/VSCodium.zip
 
-  echo "### INSTALLING ###"
-  sudo cp -r vscodium/VSCode-darwin-arm64/VSCodium.app /Applications/VSCodium.app
-  sudo xattr -r -d com.apple.quarantine /Applications/VSCodium.app
+  # code below does not work, don't know why yet
+  #echo "### INSTALLING ###"
+  #sudo cp -r vscodium/VSCode-darwin-arm64/VSCodium.app /Applications/VSCodium.app
+  #sudo xattr -r -d com.apple.quarantine /Applications/VSCodium.app
 else
   echo "### ALREADY ON LATEST VERSION ###"
 fi
