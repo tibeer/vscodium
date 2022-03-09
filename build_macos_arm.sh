@@ -1,5 +1,10 @@
 #!/bin/bash
 
+git pull
+cd vscodium || exit
+git pull
+cd .. || exit
+brew link --overwrite node@16
 
 echo "### FETCHING TAGS ###"
 tag_fork=$(git tag -l | tail -n 1)
