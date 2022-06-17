@@ -1,4 +1,9 @@
-# VSCodium build for Darwin ARM64
+# ARCHIVED
+
+This repository has been archived. The main repository has resolved the issue for M1 architecture. Please use the upstream version!
+https://github.com/VSCodium/vscodium/issues/597#event-6828038706
+
+## VSCodium build for Darwin ARM64
 
 As github is missing Mac ARM runners, this repo aims to provide a native build for darwin ARM machines.
 More on this can be found here: https://github.com/VSCodium/vscodium/issues/597
